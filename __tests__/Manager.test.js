@@ -16,5 +16,5 @@ test('gets manager officeNumber', () =>{
 
 test('gets employee', () => {
     const manager = new Manager('Jarod Prower', '1234', 'JPrower@aol.com','5678');
-    expect(employee.getRole()).toMatchObject(manager);
+    expect(manager.getRole()).toMatchObject(manager);
 })
