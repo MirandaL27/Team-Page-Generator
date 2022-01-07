@@ -20,10 +20,10 @@ test('gets employee id', () => {
 
 test('gets employee email', () => {
     const employee = new Employee('Jarod Prower', '1234', 'JPrower@aol.com');
-    expect(employee.getEmail).toBe('JPrower@aol.com');
+    expect(employee.getEmail()).toBe('JPrower@aol.com');
 })
 
 test('gets employee', () => {
     const employee = new Employee('Jarod Prower', '1234', 'JPrower@aol.com');
-    expect(employee.getRole()).toMatchObject(Employee);
+    expect(employee.getRole()).toMatchObject(employee);
 })
