@@ -9,12 +9,12 @@ test('creates an engineer object', () =>{
     expect(engineer.gitHub).toBe('MirandaL27');
 })
 
-test('gets manager officeNumber', () =>{
+test('gets engineer github', () =>{
     const engineer = new Engineer('Jarod Prower', '1234', 'JPrower@aol.com','MirandaL27');
     expect(engineer.getGitHub()).toBe('MirandaL27');
 })
 
-test('gets employee', () => {
+test('gets engineer', () => {
     const engineer = new Engineer('Jarod Prower', '1234', 'JPrower@aol.com','MirandaL27');
     expect(engineer.getRole()).toMatchObject(engineer);
 })
