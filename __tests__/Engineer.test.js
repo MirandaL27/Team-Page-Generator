@@ -9,6 +9,16 @@ test('creates an engineer object', () =>{
     expect(engineer.gitHub).toBe('MirandaL27');
     expect(engineer.type).toBe('engineer');
 
+
+    expect(engineer.questions).toEqual(
+        expect.arrayContaining([
+            expect.objectContaining({
+                type:'list',
+                name: 'type',
+                message: 'What type of employee do you want to add next?'
+            })
+        ])
+    )
     expect(engineer.questions).toEqual(
         expect.arrayContaining([
             expect.objectContaining({
@@ -45,6 +55,15 @@ test('creates an engineer object', () =>{
             })
         ])
     )
+    expect(engineer.questions).toEqual(
+        expect.arrayContaining([
+            expect.objectContaining({
+                type: 'confirm',
+                name: 'addMore',
+                message: 'Would you like to add another employee?'
+            })
+        ])
+    ) 
     
 })
 
