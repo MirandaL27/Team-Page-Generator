@@ -17,7 +17,8 @@ const promptEngineersInterns = employeeData => {
     if(!employeeData.EngineersInternsArray){
         employeeData.EngineersInternsArray = [];
     }
-    return (employeeData.type === 'engineer' ? inquirer.prompt(engineer.questions): inquirer.prompt(intern.questions))
+    console.log(employeeData.type);
+    return (employeeData.type === 'Engineer' ? inquirer.prompt(engineer.questions): inquirer.prompt(intern.questions))
     .then(data => {
         employeeData.EngineersInternsArray.push(data);
       if (data.addMore) {
