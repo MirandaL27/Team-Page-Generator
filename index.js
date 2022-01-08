@@ -7,11 +7,51 @@ const Intern = require('./lib/Intern.js');
 //questions for inquirer
 const managerQuestions =[
     //need to ask about the manager info first
+    {
+        type:'input',
+        name: 'name',
+        message: 'What is the name of the manager?'
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: 'What is the id of the manager?'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'what is the email of the manager?'
+    },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message: 'What is the office number of the manager?'
+    }
 ];
 
 const EngineerInternQuestions = [
 //need to ask the questions for the engineer/intern (github for engineer, school for intern)
 //need to ask the user if they want to add more employees (Y/n)
+{
+    type:'input',
+    name: 'name',
+    message: 'What is the name of this engineer?'
+},
+{
+    type: 'input',
+    name: 'id',
+    message: 'What is the id of the manager?'
+},
+{
+    type: 'input',
+    name: 'email',
+    message: 'what is the email of the manager?'
+},
+{
+    type: 'input',
+    name: 'officeNumber',
+    message: 'What is the office number of the manager?'
+}
 ];
 
 
