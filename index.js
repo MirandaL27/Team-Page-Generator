@@ -1,8 +1,11 @@
 //Required Packages
 const Inquirer = require('inquirer');
+const fs = require('fs');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
+const generateHTML = require('./src/generateHTML.js');
+const generateCSS = require('./src/generateCSS.js');
 var employeeArray = [];
 
 const typeQuestion = [
@@ -35,6 +38,12 @@ const promptType = () =>{
     });
 }
 
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName,data, err =>{
+        if (err) throw new Error(err);
+        console.log('Page created! Check the distribution folder for results.');
+    });
+}
 
 function init(){
     //call inquirer with the managerQuestions first
@@ -47,14 +56,20 @@ function init(){
     //call the function to generate the HTML
     .then (employeeData => {
         //console.log(employeeArray);
-        return generatePage(employeeData);
+        return generateHTML(employeeData);
     })
     //write the HTML to a file 
-    //.then()    
+    .then(htmlStr => {
+        const fileName = "./dist/index.html";
+        return writeToFile(fileName, htmlStr);
+    })   
     //call the function to generate the CSS
-    //.then()
+    .then(generateCSS)
     //write the CSS to a file
-    //.then()
+    .then(cssStr => {
+        const fileName = './dist/style.css';
+        return writeToFile(fileName, cssStr);
+    })
     .catch(err => {
         console.log(err);
     })
