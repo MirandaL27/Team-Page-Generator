@@ -3,7 +3,7 @@ const Inquirer = require('inquirer');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
-
+var employeeArray = [];
 
 const typeQuestion = [
     {
@@ -17,8 +17,9 @@ const typeQuestion = [
 const promptMoreEmployees = (employeeObj) => {
     return Inquirer.prompt(employeeObj.questions)
     .then(data => {
+        employeeArray.push(data);
         console.log(employeeArray);
-        return (data.addMore ? promptType(data): data);
+        return (data.addMore ? promptType(): data);
     });
 }
 const promptUser = () => {
@@ -39,7 +40,10 @@ function init(){
     //call inquirer with the managerQuestions first
      promptUser()
     //call inquirer with the engineers/interns questions (keep going until user is done adding people)
-    .then(promptType)
+    .then(data => {
+        employeeArray.push(data);
+        return promptType();
+    })
     //call the function to generate the HTML
     .then (employeeData => {
         //console.log(employeeArray);
