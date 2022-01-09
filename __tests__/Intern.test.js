@@ -12,15 +12,6 @@ test('creates an intern object', () =>{
     expect(intern.questions).toEqual(
         expect.arrayContaining([
             expect.objectContaining({
-                type:'list',
-                name: 'type',
-                message: 'What type of employee do you want to add next?'
-            })
-        ])
-    )
-    expect(intern.questions).toEqual(
-        expect.arrayContaining([
-            expect.objectContaining({
                 type:'input',
                 name: 'name',
                 message: `What is the name of this ${typeStr}?`
