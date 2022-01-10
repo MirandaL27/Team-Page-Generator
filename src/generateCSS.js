@@ -23,6 +23,10 @@ const parseHTML  = html => {
 
 const createCSSObj = (classArray, stylingObj)=>{
     //header,manager,engineer,intern, and container
+    //remove duplicates from classArray
+    let set = new Set(classArray);
+    classArray = Array.from(set);
+
     cssObjArray = [];
     classArray.forEach(data => {
         let styles = [];
