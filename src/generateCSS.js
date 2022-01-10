@@ -48,9 +48,7 @@ const createCSSObj = (classArray, stylingObj)=>{
         let cssObj = {
             selector: data,
             propertyValuePairs: styles.filter(data => data).map(data => {
-                
                 let temp = data.split(":");
-                //console.log(temp[0], temp[1])
                 let obj = {
                     property: temp[0].trim(),
                     value: temp[1].trim()
@@ -63,16 +61,27 @@ const createCSSObj = (classArray, stylingObj)=>{
     return cssObjArray;
 }
 
+const getStylingObject = () => {
+    return stylingObj = {
+        header: 'background-color: blue; height: 500px; color: white; border: 3px solid black;',
+        container:'display:flex;',
+        manager:'background-color: red; color: white; border: 3px solid black;',
+        engineer:'background-color: green; color: white; border: 3px solid black;',
+        intern:'background-color: purple; color: white; border: 3px solid black;'
+    };
+}
 
-const generateCSS = () =>{
+
+const generateCSS = (htmlStr) =>{
+    //parse the html to get a list of class names
+    //use a styling object and the class list to create an array of css objects
+    //loop through the css object array and convert them to an array of strings
+    //join the strings with a \r\n between each
+    let classArray = parseHTML(htmlStr);
+    let cssObjectArray = createCSSObj(classArray, getStylingObject())
     let cssRules = [];
-    //the following code is for testing purposes only!
-    let cssObj = {
-        selector: '.manager',
-        propertyValuePairs : [{property:"background-color",value:"blue"},{property:"color",value:"white"}]
-    }
-    cssRules.push(createCSSRule(cssObj));
+    cssObjectArray.forEach(data => cssRules.push(createCSSRule(data)));
     return cssRules.join("\r\n");
 }
 
-module.exports = {generateCSS, createCSSRule, createCSSObj, parseHTML};
+module.exports = {generateCSS, createCSSRule, createCSSObj, getStylingObject, parseHTML};
