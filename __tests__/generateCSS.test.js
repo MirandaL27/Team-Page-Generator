@@ -5,6 +5,6 @@ test("testing the output of the createCCSRule helper function", () =>{
         selector: '.manager',
         propertyValuePairs : [{property:"background-color",value:"blue"},{property:"color",value:"white"}]
     }
-    expect(generateCSS.createCSSRule(cssObj)).toMatch(/[.]manager{[\s]*background-color: blue;[\s]*color: white;[\s]*}/);
+    expect(generateCSS.createCSSRule(cssObj)).toMatch(/[.]manager{[\s]*background-color: blue;[\s]*color: white;[\s]*}[\s]*$/);
 })
 
