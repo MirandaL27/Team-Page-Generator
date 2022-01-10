@@ -23,7 +23,40 @@ const parseHTML  = html => {
 
 const createCSSObj = (classArray, stylingObj)=>{
     //header,manager,engineer,intern, and container
-
+    cssObjArray = [];
+    classArray.forEach(data => {
+        let styles = [];
+        if(data.includes("header")){
+            styles=stylingObj.header.split(";");
+        }
+        else if (data.includes("container")){
+            styles = stylingObj.container.split(";");
+        }
+        else if (data.includes("manager")){
+            styles=stylingObj.manager.split(';');
+        }
+        else if (data.includes("engineer")){
+            styles = stylingObj.engineer.split(";");
+        }
+        else if (data.includes("intern")){
+            styles = stylingObj.intern.split(";");
+        }
+        let cssObj = {
+            selector: data,
+            propertyValuePairs: styles.filter(data => data).map(data => {
+                
+                let temp = data.split(":");
+                //console.log(temp[0], temp[1])
+                let obj = {
+                    property: temp[0].trim(),
+                    value: temp[1].trim()
+                }
+                return obj;
+            })
+        }
+        cssObjArray.push(cssObj);
+    })
+    return cssObjArray;
 }
 
 

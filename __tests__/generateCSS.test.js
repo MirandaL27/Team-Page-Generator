@@ -73,14 +73,76 @@ test("testing the output of the parseHTML helper function", () =>{
 })
 
 test("testing the output of the createCSSObj helper function", ()=>{
-    let classArray = ["header", "employeeContainer","manager","engineer","intern", "intern"];
+    let classArray = ["header", "employee-container","manager","engineer","intern", "intern"];
     let stylingObj = {
         header: 'background-color: blue; height: 500px; color: white; border: 3px solid black;',
-        Container:'display:flex;',
+        container:'display:flex;',
         manager:'background-color: red; color: white; border: 3px solid black;',
         engineer:'background-color: green; color: white; border: 3px solid black;',
-        intern:'background-color: purple; color: white; border 3px solid black;'
+        intern:'background-color: purple; color: white; border: 3px solid black;'
     }
+    let result = generateCSS.createCSSObj(classArray, stylingObj);
+    expect(result).toEqual(
+        expect.arrayContaining([
+            expect.objectContaining({
+                selector: 'header',
+                propertyValuePairs: expect.arrayContaining([
+                    expect.objectContaining({property: 'background-color', value: 'blue'}),
+                    expect.objectContaining({property: 'height', value: '500px'}),
+                    expect.objectContaining({property: 'color', value: 'white'}),
+                    expect.objectContaining({property: 'border',value: '3px solid black'})
+                ])
+            })
+        ])
+    )
+
+    expect(result).toEqual(
+        expect.arrayContaining([
+            expect.objectContaining({
+                selector: 'employee-container',
+                propertyValuePairs: expect.arrayContaining([
+                    expect.objectContaining({property: 'display', value: 'flex'})
+                ])
+            })
+        ])
+    )
+
+    expect(result).toEqual(
+        expect.arrayContaining([
+            expect.objectContaining({
+                selector: 'manager',
+                propertyValuePairs: expect.arrayContaining([
+                    expect.objectContaining({property: 'background-color', value: 'red'}),
+                    expect.objectContaining({property: 'color', value: 'white'}),
+                    expect.objectContaining({property: 'border', value: '3px solid black'})
+                ])
+            })
+        ])
+    )
+    expect(result).toEqual(
+        expect.arrayContaining([
+            expect.objectContaining({
+                selector: 'engineer',
+                propertyValuePairs: expect.arrayContaining([
+                    expect.objectContaining({property: 'background-color', value: 'green'}),
+                    expect.objectContaining({property: 'color', value: 'white'}),
+                    expect.objectContaining({property: 'border', value: '3px solid black'})
+                ])
+            })
+        ])
+    )
+    expect(result).toEqual(
+        expect.arrayContaining([
+            expect.objectContaining({
+                selector: 'intern',
+                propertyValuePairs: expect.arrayContaining([
+                    expect.objectContaining({property: 'background-color', value: 'purple'}),
+                    expect.objectContaining({property:'color', value:'white'}),
+                    expect.objectContaining({property: 'border', value:'3px solid black'})
+                ])
+            })
+        ])
+    )
     expect(generateCSS.createCSSObj(classArray, stylingObj))
 })
 
