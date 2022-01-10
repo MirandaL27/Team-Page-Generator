@@ -7,6 +7,25 @@ const createCSSRule = cssObj => {
     }`
 }
 
+const parseHTML  = html => {
+    //takes in html as string and returns array of class names.
+    //find strings that are immediately preceded by class = " and immediately followed by "
+    //add periods to class selectors
+    //add header class if html contains header
+    const regexStr = /class="[^"]*"/g;
+    let classArray = Array.from(html.matchAll(regexStr)).map(data => data[0]);
+    classArray = classArray.map(data => "." + data.replaceAll("\"","").replaceAll("class=", ""));
+    if(html.includes("<header>")){
+        classArray.unshift("header");
+    }
+    return classArray;
+}
+
+const createCSSObj = classArray =>{
+    
+}
+
+
 const generateCSS = () =>{
     let cssRules = [];
     //the following code is for testing purposes only!
@@ -18,4 +37,4 @@ const generateCSS = () =>{
     return cssRules.join("\r\n");
 }
 
-module.exports = {generateCSS, createCSSRule};
+module.exports = {generateCSS, createCSSRule, createCSSObj, parseHTML};
