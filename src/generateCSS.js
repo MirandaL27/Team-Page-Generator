@@ -21,8 +21,9 @@ const parseHTML  = html => {
     return classArray;
 }
 
-const createCSSObj = classArray =>{
-    
+const createCSSObj = (classArray, stylingObj)=>{
+    //header,manager,engineer,intern, and container
+
 }
 
 

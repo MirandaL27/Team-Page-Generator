@@ -72,7 +72,19 @@ test("testing the output of the parseHTML helper function", () =>{
     expect()
 })
 
+test("testing the output of the createCSSObj helper function", ()=>{
+    let classArray = ["header", "employeeContainer","manager","engineer","intern", "intern"];
+    let stylingObj = {
+        header: 'background-color: blue; height: 500px; color: white; border: 3px solid black;',
+        Container:'display:flex;',
+        manager:'background-color: red; color: white; border: 3px solid black;',
+        engineer:'background-color: green; color: white; border: 3px solid black;',
+        intern:'background-color: purple; color: white; border 3px solid black;'
+    }
+    expect(generateCSS.createCSSObj(classArray, stylingObj))
+})
+
 test("testing the output of the generateCSS function",()=>{
-    
+
 })
 
