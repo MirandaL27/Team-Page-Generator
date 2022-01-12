@@ -81,6 +81,7 @@ const generateCSS = (htmlStr) =>{
     let cssObjectArray = createCSSObj(classArray, getStylingObject())
     let cssRules = [];
     cssObjectArray.forEach(data => cssRules.push(createCSSRule(data)));
+    //console.log(cssRules);
     return cssRules.join("\r\n");
 }
 

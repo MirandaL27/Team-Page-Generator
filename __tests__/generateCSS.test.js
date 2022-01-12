@@ -164,56 +164,34 @@ test("testing the output of the generateCSS function",()=>{
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Miranda Lane-Portfolio</title>
+        <title>My Team</title>
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
     <!--header section-->
         <header>
-            <h1>Miranda Lane</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#about-me">About Me</a>
-                    </li>
-                    <li>
-                        <a href="#work">Work</a>
-                    </li>
-                    <li>
-                        <a href="#contact-me">Contact Me</a>
-                    </li>
-                    <li>
-                        <a href="./assets/images/Resume.pdf" target="_blank">Resume</a>
-                    </li>
-                </ul>
-            </nav>
+            <h1>My Team</h1>
         </header>
-    <!--hero/jumbotron section-->
-        <section class="hero">
-            <h2>Creative Coder</h2>
-            <img src="./assets/images/madphoto.com-34_pp.jpg" alt="Miranda Lane. Profession headshot. Woman with red hair, red glasses, and hazel eyes smiling."/>
-        </section>
-    <!--About me section-->
-        <section id="about-me" class="about-me">
-            <div class="about-me-header">
-                <h2>About Me</h2>
-            </div>   
-        </section>  
-    <!--Work section-->
-        <section id="work" class="work">
-            <div class="work-header">
-                <h2>Work</h2>
-            </div>
-            <div class="work-links">
-            </div>
-        </section>     
-    <!--Contact me section-->
-        <footer id="contact-me" class="contact-me">
-            <div class="contact-me-header">
-            </div>
-            <div class="contact-me-list">
-            </div>
-        </footer>     
+    <main>
+        <div class="manager">
+            <p>name: Miranda Lane</p>
+            <p>id: 1234</p>
+            <p>email: m@aol.com</p>
+            <p>office number: 2345</p>
+        </div>
+        <div class="engineer">
+            <p>name: Poppy Dada</p>
+            <p>id: 3456</p>
+            <p>email: p@aol.com</p>
+            <p>github: dada24</p>
+        </div>
+        <div class="intern">
+            <p>name: Micheal Washington</p>
+            <p>id: 4567</p>
+            <p>email: w@aol.com</p>
+            <p>school: UCSB</p>
+        </div>
+    </main>    
     </body>
     </html>`;
 
