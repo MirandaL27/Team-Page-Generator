@@ -4,7 +4,7 @@ const Intern = require('../lib/Intern.js');
 
 const generateEmployeeHTML = data =>{
     let outputStr = '';
-    data.foreach(data => {
+    data.forEach(data => {
         outputStr += `<div class="${data.type}">
         <p>Name: ${data.name}</p>
         <p>Id: ${data.id}</p>
@@ -12,24 +12,25 @@ const generateEmployeeHTML = data =>{
         `
 
         if(data.type === "manager"){
-            outputStr +=`<p>Office Number: ${data.officeNumber}</p>`
+            outputStr +=`<p>Office Number: ${data.officeNumber}</p>
+            `
         }
         else if(data.type === "engineer"){
-            outputStr +=`<p>GitHub: https://github.com/${data.gitHub}</p>`
+            outputStr +=`<p>GitHub: https://github.com/${data.gitHub}</p>
+            `
         }
         else{
-            outputStr += `<p>School: ${data.school}</p>`
+            outputStr += `<p>School: ${data.school}</p>
+            `
         }
+        outputStr += `</div>
+        `
     })
 
     return outputStr;
 }
 
 var generateHTML = (data) => {
-    console.log(data);
-    data.foreach(data => {
-
-    })
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -54,4 +55,4 @@ var generateHTML = (data) => {
 }
 
 
-module.exports = generateHTML;
+module.exports = {generateHTML,generateEmployeeHTML};

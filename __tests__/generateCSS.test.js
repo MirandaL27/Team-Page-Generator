@@ -195,6 +195,7 @@ test("testing the output of the generateCSS function",()=>{
     </body>
     </html>`;
 
-    expect(generateCSS.generateCSS(html)).toMatch(/.*/);
+    expect(generateCSS.generateCSS(html)).toMatch(/header{[\s]*background-color: blue;[\s]*height: 500px;[\s]*color: white;[\s]*border: 3px solid black;[\s]*}[\s]*[.]manager{[\s]*background-color: red;[\s]*color: white;[\s]*border: 3px solid black;[\s]*}[\s]*.engineer{[\s]*background-color: green;[\s]*color: white;[\s]*border: 3px solid black;[\s]*}[\s]*.intern{[\s]*background-color: purple;[\s]*color: white;[\s]*border: 3px solid black;[\s]*}[\s]*$/);
+
 })
 
