@@ -6,7 +6,7 @@ const generateEmployeeHTML = data =>{
     let outputStr = '';
     data.forEach(data => {
         outputStr += `<div class="${data.type}">
-        <p>Name: ${data.name}</p>
+        <h2>Name: ${data.name}</h2>
         <p>Id: ${data.id}</p>
         <p>Email: ${data.email}</p>
         `
@@ -16,7 +16,7 @@ const generateEmployeeHTML = data =>{
             `
         }
         else if(data.type === "engineer"){
-            outputStr +=`<p>GitHub: https://github.com/${data.gitHub}</p>
+            outputStr +=`<a href="https://github.com/${data.gitHub}">GitHub: https://github.com/${data.gitHub}</a>
             `
         }
         else{

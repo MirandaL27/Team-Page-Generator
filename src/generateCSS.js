@@ -63,11 +63,11 @@ const createCSSObj = (classArray, stylingObj)=>{
 
 const getStylingObject = () => {
     return stylingObj = {
-        header: 'background-color: blue; height: 500px; color: white; border: 3px solid black;',
-        container:'display:flex;',
-        manager:'background-color: red; color: white; border: 3px solid black;',
-        engineer:'background-color: green; color: white; border: 3px solid black;',
-        intern:'background-color: purple; color: white; border: 3px solid black;'
+        header: 'background-color: blue; color: white; border: 3px solid black;',
+        container:'display:flex; justify-content: space-around; margin: 20px; border-radius: 10px; ',
+        manager:'background-color: red; color: white; border: 3px solid black; border-radius: 10px;',
+        engineer:'background-color: green; color: white; border: 3px solid black; border-radius: 10px;',
+        intern:'background-color: purple; color: white; border: 3px solid black; border-radius: 10px;'
     };
 }
 

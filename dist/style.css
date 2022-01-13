@@ -1,19 +1,30 @@
 header{
         background-color: blue;
-height: 500px;
 color: white;
 border: 3px solid black;
     }
 .employee-container{
         display: flex;
+justify-content: space-around;
+margin: 20px;
     }
 .manager{
         background-color: red;
 color: white;
 border: 3px solid black;
+border-radius: 10px;
     }
 .engineer{
         background-color: green;
 color: white;
 border: 3px solid black;
+border-radius: 10px;
+    }
+    h2{
+        background-color: pink;
+        padding: 10px;
+    }
+    body{
+        font-family:Arial, Helvetica, sans-serif;
+        background-color: aqua;
     }
