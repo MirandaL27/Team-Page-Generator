@@ -20,7 +20,18 @@ const typeQuestion = [
 const promptMoreEmployees = (employeeObj) => {
     return Inquirer.prompt(employeeObj.questions)
     .then(data => {
-        employeeArray.push(data);
+        let {name, id, email, school, gitHub} = data;
+        if(data.gitHub){
+            //this person is an engineer
+            let obj = new Engineer(name, id, email, gitHub);
+            employeeArray.push(obj);
+        }
+        else{
+            //this person is an intern
+            let obj = new Intern(name, id, email, school);
+            employeeArray.push(obj);
+        }
+        
         console.log(employeeArray);
         return (data.addMore ? promptType(): data);
     });
@@ -50,25 +61,28 @@ function init(){
      promptUser()
     //call inquirer with the engineers/interns questions (keep going until user is done adding people)
     .then(data => {
-        employeeArray.push(data);
+        let {name, id, email, officeNumber} = data;
+        let obj = new Manager(name, id, email, officeNumber);
+        employeeArray.push(obj);
         return promptType();
     })
     //call the function to generate the HTML
-    .then (employeeData => {
+    .then (() => {
         //console.log(employeeArray);
-        return generateHTML(employeeData);
+        return generateHTML.generateHTML(employeeArray);
     })
     //write the HTML to a file 
     .then(htmlStr => {
         const fileName = "./dist/index.html";
-        return writeToFile(fileName, htmlStr);
+        writeToFile(fileName, htmlStr);
+        return htmlStr;
     })   
     //call the function to generate the CSS
     .then(generateCSS)
     //write the CSS to a file
-    .then(cssStr => {
+    .then(htmlStr => {
         const fileName = './dist/style.css';
-        return writeToFile(fileName, cssStr);
+        return writeToFile(fileName, generateCSS.generateCSS(htmlStr));
     })
     .catch(err => {
         console.log(err);

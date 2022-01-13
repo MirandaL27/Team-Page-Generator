@@ -1,1 +1,19 @@
-css rules
+header{
+        background-color: blue;
+height: 500px;
+color: white;
+border: 3px solid black;
+    }
+.employee-container{
+        display: flex;
+    }
+.manager{
+        background-color: red;
+color: white;
+border: 3px solid black;
+    }
+.engineer{
+        background-color: green;
+color: white;
+border: 3px solid black;
+    }
