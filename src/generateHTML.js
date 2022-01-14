@@ -19,7 +19,7 @@ const generateEmployeeHTML = data =>{
         <h2>Name: ${data.name}</h2>
         ${iconStr}
         <p>Id: ${data.id}</p>
-        <p>Email: ${data.email}</p>
+        <a href="mailto:${data.email}">Email: ${data.email}</a>
         `
 
         if(data.type === "manager"){
@@ -27,7 +27,7 @@ const generateEmployeeHTML = data =>{
             `
         }
         else if(data.type === "engineer"){
-            outputStr +=`<a href="https://github.com/${data.gitHub}">GitHub: https://github.com/${data.gitHub}</a>
+            outputStr +=`<a target="_blank" href="https://github.com/${data.gitHub}">GitHub: https://github.com/${data.gitHub}</a>
             `
         }
         else{
