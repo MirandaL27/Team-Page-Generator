@@ -5,8 +5,19 @@ const Intern = require('../lib/Intern.js');
 const generateEmployeeHTML = data =>{
     let outputStr = '';
     data.forEach(data => {
+        let iconStr = '';
+        if(data.type ==='manager'){
+            iconStr = '<img src="https://img.icons8.com/ios-glyphs/30/000000/coffee.png"/>'
+        }
+        else if(data.type ==='engineer'){
+            iconStr = '<img src="https://img.icons8.com/ios-filled/50/000000/computer.png"/>'
+        }
+        else{
+            iconStr = '<img src="https://img.icons8.com/ios-filled/50/000000/school.png"/>'
+        }
         outputStr += `<div class="${data.type}">
         <h2>Name: ${data.name}</h2>
+        ${iconStr}
         <p>Id: ${data.id}</p>
         <p>Email: ${data.email}</p>
         `

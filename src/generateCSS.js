@@ -18,6 +18,9 @@ const parseHTML  = html => {
     if(html.includes("<header>")){
         classArray.unshift("header");
     }
+    if(html.includes("<h2>")){
+        classArray.push("h2");
+    }
     return classArray;
 }
 
@@ -45,6 +48,9 @@ const createCSSObj = (classArray, stylingObj)=>{
         else if (data.includes("intern")){
             styles = stylingObj.intern.split(";");
         }
+        else if (data.includes("h2")){
+            styles = stylingObj.h2.split(";");
+        }
         let cssObj = {
             selector: data,
             propertyValuePairs: styles.filter(data => data).map(data => {
@@ -64,10 +70,11 @@ const createCSSObj = (classArray, stylingObj)=>{
 const getStylingObject = () => {
     return stylingObj = {
         header: 'background-color: blue; color: white; border: 3px solid black;',
+        h2: 'background-color: purple; padding: 10px;',
         container:'display:flex; justify-content: space-around; margin: 20px; border-radius: 10px; ',
-        manager:'background-color: red; color: white; border: 3px solid black; border-radius: 10px;',
-        engineer:'background-color: green; color: white; border: 3px solid black; border-radius: 10px;',
-        intern:'background-color: purple; color: white; border: 3px solid black; border-radius: 10px;'
+        manager:'background-color: rgb(179, 88, 231); color: white; border: 3px solid black; border-radius: 10px;',
+        engineer:'background-color: slateblue; color: white; border: 3px solid black; border-radius: 10px;',
+        intern:'background-color: per; color: white; border: 3px solid black; border-radius: 10px;'
     };
 }
 
@@ -81,8 +88,15 @@ const generateCSS = (htmlStr) =>{
     let cssObjectArray = createCSSObj(classArray, getStylingObject())
     let cssRules = [];
     cssObjectArray.forEach(data => cssRules.push(createCSSRule(data)));
-    //console.log(cssRules);
-    return cssRules.join("\r\n");
+    let outPutStr = `body{
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: powderblue
+    }
+    a{
+        color: white;
+    }`
+    outPutStr += cssRules.join("\r\n");
+    return outPutStr;
 }
 
 module.exports = {generateCSS, createCSSRule, createCSSObj, getStylingObject, parseHTML};
