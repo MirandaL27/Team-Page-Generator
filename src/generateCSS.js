@@ -91,7 +91,7 @@ const generateCSS = (htmlStr) =>{
     cssObjectArray.forEach(data => cssRules.push(createCSSRule(data)));
     let outPutStr = `body{
     font-family:Arial, Helvetica, sans-serif;
-    background-color: powderblue
+    background-color: powderblue;
     }
     a{
         color: white;
