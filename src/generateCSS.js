@@ -55,7 +55,6 @@ const createCSSObj = (classArray, stylingObj)=>{
             selector: data,
             propertyValuePairs: styles.filter(data => data).map(data => {
                 let temp = data.split(":");
-                console.log(data,temp);
                 let obj = {
                     property: temp[0].trim(),
                     value: temp[1].trim()
