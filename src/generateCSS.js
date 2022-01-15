@@ -55,6 +55,7 @@ const createCSSObj = (classArray, stylingObj)=>{
             selector: data,
             propertyValuePairs: styles.filter(data => data).map(data => {
                 let temp = data.split(":");
+                console.log(data,temp);
                 let obj = {
                     property: temp[0].trim(),
                     value: temp[1].trim()
@@ -71,10 +72,10 @@ const getStylingObject = () => {
     return stylingObj = {
         header: 'background-color: blue; color: white; border: 3px solid black;',
         h2: 'background-color: purple; padding: 10px;',
-        container:'display:flex; justify-content: space-around; margin: 20px; border-radius: 10px; ',
+        container:'display:flex; justify-content: space-around; margin: 20px; border-radius: 10px;',
         manager:'background-color: rgb(179, 88, 231); color: white; border: 3px solid black; border-radius: 10px;',
         engineer:'background-color: slateblue; color: white; border: 3px solid black; border-radius: 10px;',
-        intern:'background-color: per; color: white; border: 3px solid black; border-radius: 10px;'
+        intern:'background-color: rgb(230, 102, 247); color: white; border: 3px solid black; border-radius: 10px;'
     };
 }
 
@@ -94,6 +95,7 @@ const generateCSS = (htmlStr) =>{
     }
     a{
         color: white;
+        display: block;
     }`
     outPutStr += cssRules.join("\r\n");
     return outPutStr;

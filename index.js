@@ -31,8 +31,6 @@ const promptMoreEmployees = (employeeObj) => {
             let obj = new Intern(name, id, email, school);
             employeeArray.push(obj);
         }
-        
-        console.log(employeeArray);
         return (data.addMore ? promptType(): data);
     });
 }
