@@ -34,7 +34,7 @@ The purpose of this project is to generate a styled html page based on the emplo
 # Video Walkthroughs
 [video demo of team html generator code](video-walkthrough.gif)
 
-[video demo of testing process for html generator code](video-test-walkthrough.gif)
+[video demo of testing process for html generator code](video_test_walkthrough.gif)
 
 # Credits
 * Miranda Lane
