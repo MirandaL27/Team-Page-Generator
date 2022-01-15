@@ -6,6 +6,7 @@ The purpose of this project is to generate a styled html page based on the emplo
 # Built With
 * Node.js
 * Inquirer
+* Jest
 * HTML
 * CSS
 
@@ -25,13 +26,15 @@ The purpose of this project is to generate a styled html page based on the emplo
 
 # ScreenShots/Links
 * Github repo: https://github.com/MirandaL27/Team-Page-Generator
-Input:
+* Input:
 ![alt text](input.png)
-Output:
+* Output:
 ![alt text](output.png)
 
-# Video Walkthrough
+# Video Walkthroughs
 [video demo of team html generator code](video-walkthrough.gif)
+
+[video demo of testing process for html generator code](video-test-walkthrough.gif)
 
 # Credits
 * Miranda Lane
